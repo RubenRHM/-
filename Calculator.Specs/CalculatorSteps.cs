@@ -1,9 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using Microsoft.CSharp;
 using TechTalk.SpecFlow;
-using TechTalk.SpecFlow.Configuration.AppConfig;
-using calculator = Calculator;
 
 
 namespace Calculator.Specs
@@ -11,7 +7,7 @@ namespace Calculator.Specs
     [Binding]
     public class CalculatorSteps
     {
-        private int result;
+        private int _result;
         
         [Given(@"I have entered (.*) into the calculator")]
         public void GivenIHaveEnteredIntoTheCalculator(int number)
@@ -28,31 +24,31 @@ namespace Calculator.Specs
         [When(@"I press add")]
         public void WhenIPressAdd()
         {
-            result = Calculator.Add();
+            _result = Calculator.Add();
         }
 
         [When(@"I press subtract")]
         public void WhenIPressSubtract()
         {
-            result = Calculator.Subtract();
+            _result = Calculator.Subtract();
         }
 
         [When(@"I press multiply")]
         public void WhenIPressMultiply()
         {
-            result = Calculator.Multiply();
+            _result = Calculator.Multiply();
         }
 
         [When(@"I press divide")]
         public void WhenIPressDivide()
         {
-            result = Calculator.Divide();
+            _result = Calculator.Divide();
         }
 
         [Then(@"the result should be (.*) on the screen")]
         public void ThenTheResultShouldBeOnTheScreen(int expectedResult)
         {
-            Assert.AreEqual(expectedResult, result);
+            Assert.AreEqual(expectedResult, _result);
         }
 
     }

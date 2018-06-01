@@ -21,7 +21,7 @@ Scenario: Subtract two numbers
 	When I press subtract
 	Then the result should be 3 on the screen
 
-Scenario Outline: divide
+Scenario Outline: divide two numbers
 	Given I have entered <firstNumber> into the calculator
 		And I have also entered <secondNumber> into the calculator
 	When I press divide
